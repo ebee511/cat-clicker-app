@@ -39,7 +39,7 @@ Cat.prototype.divTemplate = function(object) {
 		countText.innerHTML = 'Click count: ' + this.count;
 
 		//Add the new div element to container div
-		$('.all-cats').after(newDiv);
+		$('.all-cats').append(newDiv);
 		$(newDiv).append(catName);
 		$(newDiv).append(catPhoto);
 		$(newDiv).append(countText);
