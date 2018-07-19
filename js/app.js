@@ -5,6 +5,7 @@
  */ 
 
 var rollyClickCount = 0;
+var jacobClickCount = 0;
 
 $('#rolly-cat-photo').click(function(e) {
 	rollyClickCount++;
@@ -12,3 +13,8 @@ $('#rolly-cat-photo').click(function(e) {
 	$('#rolly-count').append(rollyClickCount);
 });
 
+$('#jacob-cat-photo').click(function(e) {
+	jacobClickCount++;
+	$('#jacob-count').empty();
+	$('#jacob-count').append(jacobClickCount);
+});
