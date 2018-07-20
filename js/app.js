@@ -1,8 +1,8 @@
 /* 
- * V2 Reqs:
- * Should display two cats
- * Each cat needs a name, picture of cat, text showing number of clicks
- * Number of clicks should increment with each click
+ * V3 Reqs:
+ * Should display at least 5 cats, listed by name
+ * An area to display the selected cat
+ * In the display area, the cat's name, picture, and number of clicks shows
  */ 
 
 // Constructor function for Cat
@@ -51,7 +51,8 @@ Cat.prototype.divTemplate = function(object) {
 //Create new cats
 var murray = new Cat('Murray', 'img/cat-photo.jpg');
 var jonesy = new Cat('Jonesy', 'img/cat-photo2.jpg');
-var carlton = new Cat('Carlton', 'img/cat-photo2.jpg');
+var carlton = new Cat('Carlton', 'img/carlton-catphoto.jpeg');
+var henry = new Cat('Henry', 'img/henry-catphoto.jpeg');
 
 //Cat array 
 var catArray = [];
@@ -60,6 +61,7 @@ var catArray = [];
 catArray['murray'] = murray;
 catArray['jonesy'] = jonesy;
 catArray['carlton'] = carlton;
+catArray['henry'] = henry;
 
 //With loop create HTML for each cat object
 for(let kitty in catArray) {
