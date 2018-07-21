@@ -8,15 +8,18 @@ h3 {
 	margin-bottom: 20px;
 }
 
-.all-cats > div {
+/* REMOVE TO ALLOW DIV TO APPEAR AT DESIGNATED SPOT */
+/*.all-cats > div {
 	float: left;
 	width: 50%;
-}
-
-/*#rolly-cat-photo {
-	width: 75%;
-}
-
-#jacob-cat-photo {
-	width: 67%;
 }*/
+
+ul {
+	list-style: none;
+	padding: 0;
+}
+
+.hidden {
+	display: none;
+}
+
