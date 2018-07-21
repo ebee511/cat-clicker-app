@@ -21,6 +21,7 @@ Cat.prototype.divTemplate = function(object) {
 		// Create <div>
 		var newDiv = document.createElement('div');
 		$(newDiv).attr('id', this.name+div_index);
+		$(newDiv).addClass('hidden');
 
 		//Create header inside of new div
 		var catName = document.createElement('h3');
@@ -38,7 +39,15 @@ Cat.prototype.divTemplate = function(object) {
 		var countText = document.createElement('p');
 		countText.innerHTML = 'Click count: ' + this.count;
 
+		//Create a li to append 
+		var catListItem = document.createElement('li');
+		var catLink = document.createElement('a');
+		catLink.innerHTML = this.name;
+		$(catLink).attr('href', '#'+this.name+div_index);
+
 		//Add the new div element to container div
+		$('.cat-list').append(catListItem);
+		$(catListItem).append(catLink)
 		$('.all-cats').append(newDiv);
 		$(newDiv).append(catName);
 		$(newDiv).append(catPhoto);
@@ -53,6 +62,9 @@ var murray = new Cat('Murray', 'img/cat-photo.jpg');
 var jonesy = new Cat('Jonesy', 'img/cat-photo2.jpg');
 var carlton = new Cat('Carlton', 'img/carlton-catphoto.jpeg');
 var henry = new Cat('Henry', 'img/henry-catphoto.jpeg');
+var felix = new Cat('Felix', 'img/felix-catphoto.jpeg');
+var fuego = new Cat('Fuego', 'img/fuego-catphoto.jpeg');
+var macy = new Cat('Macy', 'img/macy-catphoto.jpeg');
 
 //Cat array 
 var catArray = [];
@@ -62,6 +74,10 @@ catArray['murray'] = murray;
 catArray['jonesy'] = jonesy;
 catArray['carlton'] = carlton;
 catArray['henry'] = henry;
+catArray['felix'] = felix;
+catArray['fuego'] = fuego;
+catArray['macy'] = macy;
+
 
 //With loop create HTML for each cat object
 for(let kitty in catArray) {
@@ -77,4 +93,15 @@ $(document).on('click', 'img', function(e){
 	getCat.count += 1;	
  counter.innerHTML = 'Click count: ' + getCat.count;
 }); 
+
+//event listener for click on li 
+$(document).on('click', 'li', function(e) {
+	let cat = e.target.attributes[0].nodeValue;
+	let catSiblings = $(cat).siblings();
+
+	if($(cat).hasClass('hidden')) {
+		$(cat).toggleClass('hidden');
+		$(catSiblings).addClass('hidden');
+	}
+});
 
